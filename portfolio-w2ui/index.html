@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>Rob van der Galiën</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- © Rob van der Galiën, 2019 -->
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" type="text/css" href="css/w2ui-1.5.css" />
+
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/w2ui-1.5.js"></script>
+
+    <!-- <script type="text/javascript" src="js/jquery-min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/xxx.js"></script> -->
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="header-box">
+                <h2>Portfolio Rob van der Galiën</h2>
+                <p id="tagline">Web, tekenen en schilderen, fotografie</p>
+            </div>
+            <ul id="menu">
+                <li class="active_menu"><a href="index.html">Home</a></li>
+                <li><a href="portfoliio.html">Portfolio</a></li>
+                <li><a href="over_mijzelf.html">Over mijzelf</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+
+        <div id="content-box">
+            <div>
+                <article id="content">
+                    <p class="kolom">
+                        Sed gubergren stet amet stet amet amet eirmod amet, no diam dolores consetetur amet dolor takimata takimata amet sit. At nonumy sed duo accusam et accusam et nonumy, et takimata ea clita eos, consetetur et dolor tempor accusam sit. Labore et diam ea dolor et est. Ipsum consetetur sanctus clita stet erat sed et et. Sed takimata sed labore sit ipsum justo et kasd, sed takimata consetetur dolor sea. Dolores et et sed diam gubergren, kasd erat amet gubergren duo accusam. Eos ipsum sanctus stet amet, dolor no accusam ea sea diam et. Duo et magna erat diam. Et lorem ea et eos tempor est, ea eos tempor magna sed.
+                    </p>
+                    <p class="kolom">
+                        Et sed consetetur diam et consetetur elitr at labore sed, dolor duo invidunt dolor rebum nonumy diam, dolores aliquyam sanctus sit takimata vero amet. Justo justo aliquyam diam duo eirmod sit amet, kasd elitr sed et no et, aliquyam consetetur ipsum diam no elitr gubergren ipsum dolore, diam consetetur sit eirmod sadipscing sea sed, ipsum justo et labore at dolor eirmod dolor duo, diam amet est aliquyam ipsum sadipscing ut at ipsum.
+                    </p>
+                </article>
+            </div>
+
+            <div id="grid" style="width: 100%; height: 250px;"></div>
+
+            <div id="myLayout" style="height: 400px"></div>
+
+        </div>
+
+        <footer>
+            <div class="copyrights">&copy; Rob van der Galiën - v0.1 - 19-10-2019</div>
+        </footer>
+
+    </div>
+
+    <script language="JavaScript">
+$(function () {
+    // html-string
+    let contentStr = '<div>';
+            contentStr += '<h3>Hallo</h3>';
+            contentStr += '<p>De content. Hoera!</p>';
+        contentStr += '</div>';
+    //console.log('contentStr', contentStr);
+
+    $('#grid').w2grid({
+        name: 'grid',
+        header: 'Lijst met namen',
+        columns: [
+            { field: 'fname', text: 'Voornaam', size: '30%' },
+            { field: 'lname', text: 'Achternaam', size: '30%' },
+            { field: 'email', text: 'Email', size: '40%' },
+            { field: 'sdate', text: 'Startdatum', size: '120px' }
+        ],
+        records: [
+            { recid: 1, fname: "Peter", lname: "Jeremia", email: 'peter@mail.com', 
+                sdate: '2/1/2010' },
+            { recid: 2, fname: "Bruce", lname: "Wilkerson", email: 'bruce@mail.com', 
+                sdate: '6/1/2010' },
+            { recid: 3, fname: "John", lname: "McAlister", email: 'john@mail.com', 
+                sdate: '1/16/2010' },
+            { recid: 4, fname: "Ravi", lname: "Zacharies", email: 'ravi@mail.com', 
+                sdate: '3/13/2007' },
+            { recid: 5, fname: "William", lname: "Dembski", email: 'will@mail.com', 
+                sdate: '9/30/2011' },
+            { recid: 6, fname: "David", lname: "Peterson", email: 'david@mail.com', 
+                sdate: '4/5/2010' }
+        ]
+    });
+
+    // layout met tekst, compleet w2ui-component en html-code-string
+    $('#myLayout').w2layout({
+        name: 'myLayout',
+        panels: [
+            { type: 'top', size: 60, content: 'top' },
+            { type: 'left', 
+                size: 150, 
+                resizable: true, 
+                content: '<div id="sidebar" style="height: 300px; width: 200px;"></div>' },
+            { type: 'right', size: 150, resizable: true, content: contentStr }
+        ]
+    });
+
+    $('#sidebar').w2sidebar({
+        name: 'sidebar',
+        nodes: [
+            { id: 'level-1', text: 'Level 1', img: 'icon-folder', expanded: true, group: true,
+              nodes: [ { id: 'level-1-1', text: 'Level 1.1', icon: 'fa fa-home' },
+                       { id: 'level-1-2', text: 'Level 1.2', icon: 'fa fa-star' },
+                       { id: 'level-1-3', text: 'Level 1.3', icon: 'fa fa-star-o' }
+                     ]
+            },
+            { id: 'level-2', text: 'Level 2', img: 'icon-folder', expanded: true, group: true,
+              nodes: [ { id: 'level-2-1', text: 'Level 2.1', img: 'icon-folder', count: 3,
+                           nodes: [
+                           { id: 'level-2-1-1', text: 'Level 2.1.1', icon: 'fa fa-star-o' },
+                           { id: 'level-2-1-2', text: 'Level 2.1.2', icon: 'fa fa-star-o', count: 67 },
+                           { id: 'level-2-1-3', text: 'Level 2.1.3', icon: 'fa fa-star-o' }
+                       ]},
+                       { id: 'level-2-2', text: 'Level 2.2', icon: 'fa fa-star-o' },
+                       { id: 'level-2-3', text: 'Level 2.3', icon: 'fa fa-star-o' }
+                     ]
+            }
+        ]
+    });
+});
+    </script>
+</body>
+
+</html>
